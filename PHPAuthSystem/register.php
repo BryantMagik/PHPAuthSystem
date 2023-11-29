@@ -11,6 +11,7 @@
     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
         <input type="text" name="user">
         <input type="password" name="password">
+        <input type="password" name="passwordVerificada">
         <input type="email" name="email">
         <input type="text" name="nombre">
         <input type="text" name="apellido">
