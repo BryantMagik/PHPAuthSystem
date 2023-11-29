@@ -14,6 +14,7 @@
         <input type="email" name="email">
         <input type="text" name="nombre">
         <input type="text" name="apellido">
+        <input type="submit" name="enviar">
     </form>
 
     <?php

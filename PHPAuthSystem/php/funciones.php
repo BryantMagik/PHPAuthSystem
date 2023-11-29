@@ -34,13 +34,11 @@ function registrarUsuario($usuarioReg, $passwdReg, $emailReg, $nombreReg, $apell
 
     $pass_hash = password_hash($passwdReg, PASSWORD_DEFAULT);
 
-    $datos = fopen('datosTEST.csv', 'w+');
+    $datos = fopen('datosTEST.csv', 'a+');
 
     $datosUsuario = array($usuarioReg, $pass_hash, $emailReg, $nombreReg, $apellidoReg);
 
-    foreach ($datosUsuario as $datos) {
-        fputcsv($datos, $datosUsuario);
-    }
+    fputcsv($datos, $datosUsuario);
 
     fclose($datos);
 
