@@ -31,9 +31,11 @@ function autenticarUsuario($usuario, $password, $datos)
 }
 function registrarUsuario($usuarioReg, $passwdReg, $getEmail, $nombreReg, $nombreApellido)
 {
-    $hash5_password = $passwdReg;
+    password_hash($passwdReg, PASSWORD_DEFAULT);
+
     $datos = fopen('datos.csv', 'w');
-    $linea = fputcsv('datos.csv',);
+    
+
 
 }
 function existe()
