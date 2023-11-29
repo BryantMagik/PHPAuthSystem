@@ -29,13 +29,20 @@ function autenticarUsuario($usuario, $password, $datos)
         echo "Fallido";
     }
 }
-function registrarUsuario($usuarioReg, $passwdReg, $getEmail, $nombreReg, $nombreApellido)
+function registrarUsuario($usuarioReg, $passwdReg, $emailReg, $nombreReg, $apellidoReg)
 {
-    password_hash($passwdReg, PASSWORD_DEFAULT);
 
-    $datos = fopen('datos.csv', 'w');
-    
+    $pass_hash = password_hash($passwdReg, PASSWORD_DEFAULT);
 
+    $datos = fopen('datosTEST.csv', 'w+');
+
+    $datosUsuario = array($usuarioReg, $pass_hash, $emailReg, $nombreReg, $apellidoReg);
+
+    foreach ($datosUsuario as $datos) {
+        fputcsv($datos, $datosUsuario);
+    }
+
+    fclose($datos);
 
 }
 function existe()

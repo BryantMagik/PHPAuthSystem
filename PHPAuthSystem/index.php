@@ -19,7 +19,7 @@
             </label>
             <input type="password" name="password">
             <input type="submit" value="Iniciar Sesión">
-            <button type="submit" name="registro">Registrarse</button>
+            <button type="submit" name="registro" formaction="register.php">Registrarse</button>
         </form>
     </div>
     <?php require_once('php/login.php'); ?>
