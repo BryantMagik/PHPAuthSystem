@@ -1,48 +1,32 @@
 <?php
-
-
 function analizar($datos)
 {
     return (isset($_POST[$datos])) ? trim(htmlspecialchars($_POST[$datos])) : "";
 }
-function autenticarUsuario($usuario, $password, $datos)
-{
-    $autenticado = false;
 
-    if (!empty($datos)) {
-
-        while (($fila = fgetcsv($datos)) !== false) {
-            $usuarioArchivo = $fila[0];
-            $passwordArchivo = $fila[1];
-
-            if (($usuarioArchivo === $usuario) && ($password === $passwordArchivo)) {
-                $autenticado = true;
-                header('Location: php/mainpage.html');
-                break;
-            }
-        }
-    }
-
-    if ($autenticado) {
-        echo "Éxito";
-    } else {
-        echo "Fallido";
-    }
-}
-function registrarUsuario($usuarioReg, $passwdReg, $emailReg, $nombreReg, $apellidoReg)
+function registrarUsuario($emailReg, $passwdReg, $nombreReg)
 {
 
     $pass_hash = password_hash($passwdReg, PASSWORD_DEFAULT);
+    $emailExistente = false;
+    $datos = fopen('datos.csv', 'r');
+    while (($fila = fgetcsv($datos)) !== false) {
+        $emailComprobar = $fila[0];
+        if ($emailReg === $emailComprobar) {
+            $emailExistente = true;
+            break;
+        }
+    }
 
-    $datos = fopen('datosTEST.csv', 'a+');
-
-    $datosUsuario = array($usuarioReg, $pass_hash, $emailReg, $nombreReg, $apellidoReg);
-
-    fputcsv($datos, $datosUsuario);
-
-    fclose($datos);
+    if ($emailExistente) {
+        echo "Ya existe el email";
+    } else {
+        $datos = fopen('datos.csv', 'a+');
+        $datosUsuario = array($emailReg, $pass_hash, $nombreReg);
+        fputcsv($datos, $datosUsuario);
+        fclose($datos);
+        echo "Usuario registrado con éxito";
+    }
 
 }
-function existe()
-{
-}
+

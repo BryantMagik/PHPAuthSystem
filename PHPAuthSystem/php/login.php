@@ -1,19 +1,25 @@
 <?php
-
 require_once('funciones.php');
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $getUser = analizar('user');
-    $getPassword = analizar('password');
+$getEmail = analizar('email');
+$getPassword = analizar('passwd');
 
-    /*
-    $hash_default_salt = password_hash($getPassword, PASSWORD_DEFAULT);
-    $hash_variable_salt = password_hash($getPassword, PASSWORD_DEFAULT, array('cost' => 9));
-    */
+$autenticado = false;
+$datos = fopen('datos.csv', 'r');
 
-    if (($datos = fopen('php/datos.csv', 'r')) !== false) {
-        autenticarUsuario($getUser, $getPassword, $datos);
-        fclose($datos);
-    } else {
-        echo "No se pudo abrir el archivo de usuarios.";
+while (($fila = fgetcsv($datos)) !== false) {
+    $emailArchivo = $fila[0];
+    $passwordArchivo = $fila[1];
+
+    if (($emailArchivo === $getEmail) && password_verify($getPassword,$passwordArchivo)) {
+        $autenticado = true;
+        header('Location: php/mainpage.html');
+        exit();
     }
+}
+fclose($datos);
+
+if ($autenticado) {
+
+} else {
+    
 }
