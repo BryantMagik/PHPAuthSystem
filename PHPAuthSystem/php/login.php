@@ -4,7 +4,7 @@ $getEmail = analizar('email');
 $getPassword = analizar('passwd');
 
 $autenticado = false;
-$datos = fopen('datos.csv', 'r');
+$datos = fopen('php/datos.csv', 'r');
 
 while (($fila = fgetcsv($datos)) !== false) {
     $emailArchivo = $fila[0];
