@@ -10,19 +10,10 @@
 </head>
 
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <h1>Crear Cuenta</h1>
-                <!--
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                -->
                 <span>o usa tu correo electrónico para registrarte</span>
                 <input type="text" name="nombreReg" placeholder="Nombre" required>
                 <input type="email" name="emailReg" placeholder="Correo Electrónico" max="30" required>
@@ -33,14 +24,6 @@
         <div class="form-container sign-in">
             <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <h1>Iniciar Sesión</h1>
-                <!--
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                -->
                 <span>o usa tu correo electrónico y contraseña</span>
                 <input type="email" name="email" placeholder="Correo Electrónico" required>
                 <input type="password" name="passwd" placeholder="Contraseña" required>
@@ -68,9 +51,8 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['accion'])) {
             $accion = $_POST['accion'];
-
             if ($accion === 'registro') {
-                require_once('php/register.php');
+                require('php/register.php');
             } elseif ($accion === 'login') {
                 require('php/login.php');
             }

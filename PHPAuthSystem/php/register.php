@@ -1,6 +1,5 @@
 <?php
 require_once('php/funciones.php');
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $getNombre = analizar('nombreReg');
     $getEmail = analizar('emailReg');
     $getPassword = analizar('passwdReg');
@@ -18,14 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     if ($emailExistente) {
-        echo "Ya existe el email";
+        echo '<div class="container-result register-error"> Email ya registrado</div>';
     } else {
         $datos = fopen('php/datos.csv', 'a+');
         $datosUsuario = array($getEmail, $pass_hash, $getNombre);
         fputcsv($datos, $datosUsuario);
         fclose($datos);
-        echo "Usuario registrado con éxito";
+        echo '<div class="container-result register">Usuario registrado con éxito</div>';
     }
-}
 
 ?>
