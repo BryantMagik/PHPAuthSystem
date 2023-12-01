@@ -12,15 +12,10 @@
 </head>
 
 <body>
-    <header>
-        <div class="container mainpage">
-            <div class="nav-container menu-list">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+<?php
+require('header.php');
+?>
 </body>
+
 
 </html>

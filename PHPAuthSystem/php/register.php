@@ -3,6 +3,7 @@ require_once('php/funciones.php');
     $getNombre = analizar('nombreReg');
     $getEmail = analizar('emailReg');
     $getPassword = analizar('passwdReg');
+    $getApellido = analizar('apellidoReg');
 
     $pass_hash = password_hash($getPassword, PASSWORD_DEFAULT);
     $emailExistente = false;
@@ -20,7 +21,7 @@ require_once('php/funciones.php');
         echo '<div class="container-result register-error"> Email ya registrado</div>';
     } else {
         $datos = fopen('php/datos.csv', 'a+');
-        $datosUsuario = array($getEmail, $pass_hash, $getNombre);
+        $datosUsuario = array($getEmail, $pass_hash, $getNombre, $getApellido);
         fputcsv($datos, $datosUsuario);
         fclose($datos);
         echo '<div class="container-result register">Usuario registrado con éxito</div>';

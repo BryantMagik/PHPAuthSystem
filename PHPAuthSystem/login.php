@@ -17,6 +17,7 @@
                 <h1>Crear Cuenta</h1>
                 <span>o usa tu correo electrónico para registrarte</span>
                 <input type="text" name="nombreReg" placeholder="Nombre" required>
+                <input type="text" name="apellidoReg" placeholder="Apellido" required>
                 <input type="email" name="emailReg" placeholder="Correo Electrónico" max="30" required>
                 <input type="password" name="passwdReg" placeholder="Contraseña" max="16" min="8" required>
                 <button type="hidden" name="accion" value="registro">Registrarse</button>

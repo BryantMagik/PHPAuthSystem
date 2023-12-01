@@ -9,17 +9,20 @@ $datos = fopen('php/datos.csv', 'r');
 while (($fila = fgetcsv($datos)) !== false) {
     $emailArchivo = $fila[0];
     $passwordArchivo = $fila[1];
+    $nombreArchivo = $fila[2];
 
     if (($emailArchivo === $getEmail) && password_verify($getPassword,$passwordArchivo)) {
         $autenticado = true;
-        header('Location: php/mainpage.html');
-        exit();
+        session_start();
+        $_SESSION['login_user'] = $nombreArchivo;    
+        break;
     }
 }
-fclose($datos);
 
 if ($autenticado) {
-
+    header('Location: php/mainpage.php');
 } else {
     
 }
+fclose($datos);
+
