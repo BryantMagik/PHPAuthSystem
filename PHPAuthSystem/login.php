@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/login.css">
     <title>Página de Inicio de Sesión </title>
 </head>
-
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
@@ -60,7 +59,6 @@
             }
         }
     }
-
     ?>
 </body>
 
