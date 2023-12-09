@@ -15,17 +15,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while (($fila = fgetcsv($users)) !== false) {
         $idUser = $fila[1];
         $passUser = $fila[2];
-        $tipoUser = $fila[5];
         if (($user === $fila[1]) && md5($passwd) === $passUser) {
             $autenticado = true;
             $nombreUser = $fila[3];
             $apellidoUser = $fila[4];
+            if ($fila[5] === '1') {
+                $tipoUser = 'Profesor';
+            } else {
+                $tipoUser = 'Alumno';
+            }
             break;
         }
     }
     if ($autenticado) {
         $_SESSION['login_user'] = $nombreUser . ' ' . $apellidoUser;
-        $_SESSION['auth_rol'] = '';
+        $_SESSION['auth_rol'] = $tipoUser;
         header('Location: mainpage.php');
         exit();
     } else {
