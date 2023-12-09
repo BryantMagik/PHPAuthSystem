@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        background-color: #c9d6ff;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .container {
+        border-radius: 10px;
+        background-color: #e1a4d3;
+        width: 50px;
+        min-width: 42%;
+        min-height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .container--menu {
+        /* border: 1px solid black; */
+        width: 50%;
+    }
+
+    .container--img {
+        display: contents;
+        /* border: 1px solid black; */
+        width: 36%;
+        margin: 0 50px 0 50px;
+    }
+    .container--menu, .container--img{
+        margin: 20px;
+        flex: 1;
+    }
+
+    img {
+        width: 380px;
+    }
+
+    .menu--item {
+        color: white;
+        width: 450px;
+        margin: 10px;
+        height: 30px;
+        background-color: #e09ed7;
+        border-bottom: 4px solid white;
+    }
+
+    .primero{
+        border-bottom: 4px solid #d861cf;
+    }
+
+    .textarea {
+        height: 200px;
+    }
+    .button{
+        background-color: #919fd2;
+        height: 40px;
+        border: 0;
+        border-bottom: 4px solid white;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="container--img">
+            <img src="logo.png">
+        </div>
+        <div class="container--menu">
+            <form method="post" action="#">
+                <input class="menu--item primero" type="text">
+                <input class="menu--item" type="text">
+                <textarea class="menu--item textarea"></textarea>
+                <button class="menu--item button">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
