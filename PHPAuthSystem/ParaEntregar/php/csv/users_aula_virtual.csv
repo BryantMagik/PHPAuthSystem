@@ -1,5 +1,5 @@
 id_usuario,email,password,nombre,apellidos,perfil
-123456,hi@example.com,32250170a0dca92d53ec9624f336ca24,John,Doe,1
+123456,john@example.com,32250170a0dca92d53ec9624f336ca24,John,Doe,1
 234567,asmith@example.com,73a054cc528f91ca1bbdda3589b6a22d,Alice,Smith,2
 345678,rjones@example.com,ba1b5d9d26dd50164b5fb53a948e5cdf,Robert,Jones,1
 456789,lwilson@example.com,e38561d99e538eb7d936acb92bd847b0,Linda,Wilson,2

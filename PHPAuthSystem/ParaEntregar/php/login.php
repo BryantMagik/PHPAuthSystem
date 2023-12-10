@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $autenticado = false;
 
     while (($fila = fgetcsv($users)) !== false) {
-        $idUser = $fila[1];
         $passUser = $fila[2];
         if (($user === $fila[1]) && md5($passwd) === $passUser) {
+            $idUser = $fila[0];
             $autenticado = true;
             $nombreUser = $fila[3];
             $apellidoUser = $fila[4];
@@ -28,8 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if ($autenticado) {
+        $_SESSION['id_user'] = $idUser;
         $_SESSION['login_user'] = $nombreUser . ' ' . $apellidoUser;
         $_SESSION['auth_rol'] = $tipoUser;
+        fclose($users);
         header('Location: mainpage.php');
         exit();
     } else {

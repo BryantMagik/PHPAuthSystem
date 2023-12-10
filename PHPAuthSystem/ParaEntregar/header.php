@@ -1,15 +1,21 @@
+<?php
+include('php/login.php');
+include('mensajes.php');
+?>
 <header class="container">
     <ul class="container--ul-logo">
         <li class="li--item"><img id="logoeduca" src="recursos/educamadrid.png"></li>
     </ul>
     <ul class="container--ul">
-        <li class="li--item">Mensajes enviados</li>
-        <li class="li--item">Mensajes recibidos</li>
+        <li class="li--item"><a href="">Mensajes enviados</a></li>
+        <li class="li--item"><a href="">Mensajes recibidos</a></li>
     </ul>
     <ul class="container--profile">
+        <li class="li--item"><i class="fa-regular fa-comment"><span class="mensajes">
+                    <?php echo '<a href="" class="">' . $totalRecibidos . '</a>' ?>
+                </span></i></li>
         <li class="li--item">
             <?php
-            include('php/login.php');
             if (isset($_SESSION['login_user'])) {
                 echo '<span>' . $_SESSION['login_user'] . '</span>';
                 echo '<ul><li class="li--item user">' . $_SESSION['auth_rol'] . '</li></ul>';
