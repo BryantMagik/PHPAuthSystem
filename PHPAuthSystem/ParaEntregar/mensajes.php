@@ -2,12 +2,18 @@
 $msg = fopen('php/csv/mensajes_aula_virtual.csv', 'r');
 $totalRecibidos = 0;
 $msgRecibidos = [];
+$msgEnviados = [];
 while (($fila = fgetcsv($msg)) !== false) {
     if ($_SESSION['id_user'] === $fila[1]) {
         $totalRecibidos++;
         $idOrigen = $fila[0];
         $msgRecibidos[] = [
-            'remitente_id' => $fila[0],
+            'contenido' => $fila[3],
+            'hora' => $fila[4],
+        ];
+    }
+    if ($_SESSION['id_user'] === $fila[0]) {
+        $msgEnviados[] = [
             'contenido' => $fila[3],
             'hora' => $fila[4],
         ];

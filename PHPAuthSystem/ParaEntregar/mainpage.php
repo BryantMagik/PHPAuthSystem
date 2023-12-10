@@ -13,9 +13,7 @@
 
 <body>
     <?php
-    require('header.php');
-    require('mensajes_recibidos.php');
+    include('header.php');
     ?>
 </body>
-<script src="https://kit.fontawesome.com/f21ed1d185.js" crossorigin="anonymous"></script>
 </html>

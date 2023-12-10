@@ -4,17 +4,17 @@ require('mensajes.php'); ?>
 <link rel="stylesheet" href="css/mensajes.css">
 <main>
     <div>
-    <h1>Mensajes recibidos</h1>
+        <h1>Mensajes enviados</h1>
         <table border>
             <thead>
                 <tr>
-                    <th>Recibido de</th>
+                    <th>Enviado a </th>
                     <th>Contenido</th>
                     <th>Hora</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($msgRecibidos as $mensaje): ?>
+                <?php foreach ($msgEnviados as $mensaje): ?>
                     <tr>
                         <td>
                             <?php echo $nombreDestino; ?>
