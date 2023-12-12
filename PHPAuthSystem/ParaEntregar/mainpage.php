@@ -14,6 +14,9 @@
 <body>
     <?php
     include('header.php');
+    if(isset($_SESSION['id_user'])) {
+    } else {
+        echo 'No hay sesión';
+    }
     ?>
 </body>
-</html>
