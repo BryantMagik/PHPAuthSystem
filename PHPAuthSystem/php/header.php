@@ -2,9 +2,8 @@
         <div class="container mainpage">
             <div class="nav-container menu-list">
                 <ul>
-                    <li>HOLA</li>
                     <li><?php
-                        require_once('funciones.php');
+                        require('funciones.php');
                         $getEmail = analiza('email');
                         while(($fila = fgetcsv($datos) !== false)){
                             $emailArchivo = $fila[0];

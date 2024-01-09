@@ -16,7 +16,10 @@ include('mensajes.php');
     <!-- Sector: Perfil de usuario-->
     <ul class="container--profile">
         <li class="li--item"><i class="fa-regular fa-comment"><span class="mensajes">
-                    <?php echo '<a href="mensajes_recibidos.php" class="nubeMensajes">' . $totalRecibidos . '</a>' ?>
+                    <?php
+                    if (isset($_SESSION['login_user'])) {
+                        echo '<a href="mensajes_recibidos.php" class="nubeMensajes">' . $totalRecibidos . '</a>';
+                    } ?>
                 </span></i></li>
         <li class="li--item">
             <?php
