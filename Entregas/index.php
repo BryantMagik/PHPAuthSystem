@@ -41,16 +41,26 @@ class Horno
 class Microondas
 {
     private $nivel = ['Bajo', 'Medio', 'Alto'];
-    private $tiempo = usleep(90);
+    private $temporizador = 90;
 
-
-
-    function calentar($minutos)
+    function __construct($nivel, $temporizador)
     {
+        $this->nivel = $nivel;
+        $temporizador->temporizador = $temporizador;
+    }
 
+
+
+    function calentar($temporizador = 90)
+    {
+        usleep(90);
+        for ($temporizador; $temporizador <= 0; $temporizador--) {
+            echo $temporizador;
+        }
     }
 
 }
 
 $horno = new Horno(360, 70);
 $horno->calentar(5);
+$micro = new Microondas(1, 23);
