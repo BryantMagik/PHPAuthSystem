@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <title>Página de Inicio de Sesión </title>
 </head>
+
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
@@ -16,6 +17,7 @@
                 <h1>Crear Cuenta</h1>
                 <span>o usa tu correo electrónico para registrarte</span>
                 <input type="text" name="nombreReg" placeholder="Nombre" required>
+                <input type="text" name="nombre_user" placeholder="Nombre de usuario" required>
                 <input type="text" name="apellidoReg" placeholder="Apellido" required>
                 <input type="email" name="emailReg" placeholder="Correo Electrónico" max="30" required>
                 <input type="password" name="passwdReg" placeholder="Contraseña" max="16" min="8" required>
@@ -26,7 +28,7 @@
             <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <h1>Iniciar Sesión</h1>
                 <span>o usa tu correo electrónico y contraseña</span>
-                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="text" name="email" placeholder="Correo Electrónico o Nombre de usuario" required>
                 <input type="password" name="passwd" placeholder="Contraseña" required>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button type="hidden" name="accion" value="login">Iniciar Sesión</button>
@@ -53,9 +55,9 @@
         if (isset($_POST['accion'])) {
             $accion = $_POST['accion'];
             if ($accion === 'registro') {
-                require('php/register.php');
+                require(__DIR__ . '/../includes/auth/register.php');
             } elseif ($accion === 'login') {
-                require('php/login.php');
+                require(__DIR__ . '/../includes/auth/login.php');
             }
         }
     }

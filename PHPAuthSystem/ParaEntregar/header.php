@@ -19,7 +19,7 @@ include('mensajes.php');
                     <?php
                     if (isset($_SESSION['login_user'])) {
                         echo '<a href="mensajes_recibidos.php" class="nubeMensajes">' . $totalRecibidos . '</a>';
-                    } ?>
+                    } ?>  
                 </span></i></li>
         <li class="li--item">
             <?php
@@ -36,6 +36,6 @@ include('mensajes.php');
             ?>
         </li>
     </ul>
-</header>
+</header>  
 <!--Script para el correcto funcionamiento de la nube de mensajes-->
 <script src="https://kit.fontawesome.com/f21ed1d185.js" crossorigin="anonymous"></script>
